@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
+<h1 style="color: #600"><center>Wall of Tweets - RoR Edition</center></h1>
+<br>
+
 
 <div id="tweets">
   <% @tweets.each do |tweet| %>
     <%= render tweet %>
+    <%= button_to 'Like this tweet', like_tweet_path(tweet), method: :put %>
     <p>
       <%= link_to "Show this tweet", tweet %>
       <hr> </hr>

@@ -1,11 +1,20 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  before_action :set_tweet, only: %i[ show edit update destroy like ]
 
 
   # GET /tweets or /tweets.json
   def index
     @tweets = Tweet.all.order(created_at: :desc)
 
+  end
+
+  #metode like
+  def like
+    respond_to do |format|
+      @tweet.like += 1
+      @tweet.save
+      format.html { redirect_to root_path }
+    end
   end
 
   # GET /tweets/1 or /tweets/1.json
