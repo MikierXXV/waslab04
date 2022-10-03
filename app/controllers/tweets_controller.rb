@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
   #metode like
   def like
     respond_to do |format|
-      @tweet.like += 1
+      @tweet.likes = @tweet.likes + 1
       @tweet.save
       format.html { redirect_to root_path }
     end
