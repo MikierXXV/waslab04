@@ -1,18 +1,28 @@
 <p style="color: green"><%= notice %></p>
-
-<h1 style="color: #600"><center>Wall of Tweets - RoR Edition</center></h1>
-<br>
-
-
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <%= button_to 'Like this tweet', like_tweet_path(tweet), method: :put %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-      <hr> </hr>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New tweet", new_tweet_path %>
+<body style="background-color: #fef7f7;">
+  <h1 style="color: #600"><center>Wall of Tweets - RoR Edition</center></h1>
+  <br>
+  <div class="walltweet" style="color: #4d5e9b; margin: auto; border: 1px dashed #600; padding-left: 20px; padding-top: 20px;background-color: #fff; width: 90%;">
+    <form action="/tweets" accept-charset="UTF-8" method="post">
+      <table border="0" cellpadding="2">
+      <tbody>
+        <tr>
+          <td>Your name:</td>
+          <td><input size="70" type="text" name="tweet[author]" id="tweet_author"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Your tweet:</td>
+          <td><textarea rows="2" cols="70" name="tweet[content]" id="tweet_content"></textarea></td>
+          <td><input type="submit" name="commit" value="Tweet!" data-disable-with="Tweet!"></td>
+        </tr>
+      </tbody>
+     </table>
+    </form>
+  </div>
+  <div id="tweets">
+    <% @tweets.each do |tweet| %>
+      <%= render tweet %>
+    <% end %>
+  </div>
+</body>

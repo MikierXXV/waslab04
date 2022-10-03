@@ -2,14 +2,16 @@
    <h3 style="font-weight: normal; padding: 5px 0px 0px 20px">
       <%= tweet.created_at.strftime("%A, %B-%d, %Y") %>
    </h3>
-   <div style="display: block; border: 2px solid #dfcaca; margin: 20px auto; padding: 1em; width: 90%; height: 60px">
+   <div style="display: block; border: 2px solid #dfcaca; margin: 20px auto; padding: 1em; width: 90%; height: 90px background-color: white">
      <div style="display: block; float: left; width: 95px; margin-top: 0.5em; text-align: center;">
        <span style="color:#c71585; font-size: 1.5em; font-weight: bold; text-align: center;"><%= tweet.likes %></span>
        <br>
-       <span style="font-size: 9pt; font-family: Arial,Helvetica,sans-serif;"> people like this</span>
-       <br>
+       <span style="font-size: 9pt; font-family: Arial,Helvetica,sans-serif;">
+           people like this
+           <span><h3><%= button_to 'like', like_tweet_path(tweet), method: :put %></h3></span>
+       </span>
      </div>
-     <div style="display: block; border-left: 2px solid #dfcaca; margin-left: 115px; padding-left: 1.1em; margin-top: -20px ">
+     <div style="display: block; border-left: 2px solid #dfcaca; margin-left: 115px; padding-left: 1.1em; margin-top: -7px ">
        <h4><%= tweet.author %> @ <%= tweet.created_at.strftime("%H:%M") %></h4>
        <p><%= tweet.content %></p>
      </div>
