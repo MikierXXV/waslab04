@@ -4,6 +4,7 @@
   <br>
   <div class="walltweet" style="color: #4d5e9b; margin: auto; border: 1px dashed #600; padding-left: 20px; padding-top: 20px;background-color: #fff; width: 90%;">
     <form action="/tweets" accept-charset="UTF-8" method="post">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
       <table border="0" cellpadding="2">
       <tbody>
         <tr>
